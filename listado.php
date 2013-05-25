@@ -1,3 +1,15 @@
+<?php
+include_once("conexion.php");
+$codmateria=$_GET['codmateria'];
+$res=mysql_query("SELECT * FROM grupo WHERE CodMateria=$codmateria");
+switch($codmateria){
+	case 1:{$titulo="Matemáticas";}break;
+	case 2:{$titulo="Química";}break;
+	case 3:{$titulo="Fisica";}break;
+	case 4:{$titulo="Informática";}break;
+	case 5:{$titulo="Biología";}break;
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,24 +27,23 @@
 </div>
 <div class="dmenu">
 	<ul>
-    	<li><a href="listado.html">Matematica</a></li>
-        <li><a href="listado.html">Quimica</a></li>
-        <li><a href="listado.html">Fisica</a></li>
-        <li><a href="listado.html">Informatica</a></li>
-        <li><a href="listado.html">Biología</a></li>
+    	<li><a href="listado.php?codmateria=1">Matematica</a></li>
+        <li><a href="listado.php?codmateria=2">Quimica</a></li>
+        <li><a href="listado.php?codmateria=3">Fisica</a></li>
+        <li><a href="listado.php?codmateria=4">Informatica</a></li>
+        <li><a href="listado.php?codmateria=5">Biología</a></li>
     </ul>
 </div>
 <div class="contenido1">
-	<h2>Area de Matemáticas</h2>
+	<h2>Area de <?php echo $titulo?></h2>
     	<ul class="temario">
-			<li><a href="tema.html">Tema numero 1</a></li>
-            <li><a href="tema.html">Tema numero 2</a></li>
-            <li><a href="tema.html">Tema numero 3</a></li>
-            <li><a href="tema.html">Tema numero 4</a></li>
-            <li><a href="tema.html">Tema numero 5</a></li>
-            <li><a href="tema.html">Tema numero 6</a></li>
-            <li><a href="tema.html">Tema numero 7</a></li>
-            <li><a href="tema.html">Tema numero 8</a></li>
+        	<?php
+            	while($reg=mysql_fetch_array($res)){
+				?>
+                <li><a href="temas.php?codtemas=<?php echo $reg['CodTemas']?>"><?php echo $reg['Nombre']?></a></li>
+                <?php		
+				}
+			?>
 		</ul>
 </div>
 <div class="contenido2">

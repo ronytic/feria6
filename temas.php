@@ -15,11 +15,11 @@
 </div>
 <div class="dmenu">
 	<ul>
-    	<li><a href="listado.html">Matematica</a></li>
-        <li><a href="listado.html">Quimica</a></li>
-        <li><a href="listado.html">Fisica</a></li>
-        <li><a href="listado.html">Informatica</a></li>
-        <li><a href="listado.html">Biología</a></li>
+    	<li><a href="temas.php?codmateria=1">Matematica</a></li>
+        <li><a href="temas.php?codmateria=2">Quimica</a></li>
+        <li><a href="temas.php?codmateria=3">Fisica</a></li>
+        <li><a href="temas.php?codmateria=4">Informatica</a></li>
+        <li><a href="temas.php?codmateria=5">Biología</a></li>
     </ul>
 </div>
 <div class="contenido1">
